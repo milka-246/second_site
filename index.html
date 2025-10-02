@@ -21,6 +21,7 @@
         :root {
             --scale-factor: 1;
             --hero-image-scale: 1; /* Отдельный масштаб для картинок в hero */
+            --hero-top-scale: 1; /* ОТДЕЛЬНЫЙ МАСШТАБ ДЛЯ HERO-TOP-IMAGE */
             --base-padding: 4rem;
             --hero-title-size: 4rem;
             --hero-date-size: 3rem;
@@ -92,10 +93,10 @@
             object-fit: contain;
         }
 
-        /* Прямоугольная картинка над заголовком - ОБНОВЛЕНО: добавлен масштаб для hero-top-image */
+        /* Прямоугольная картинка над заголовком - ОБНОВЛЕНО: добавлен отдельный масштаб --hero-top-scale */
         .hero-top-image {
-            width: calc(var(--hero-top-width) * var(--scale-factor) * var(--hero-image-scale));
-            height: calc(var(--hero-top-height) * var(--scale-factor) * var(--hero-image-scale));
+            width: calc(var(--hero-top-width) * var(--scale-factor) * var(--hero-top-scale));
+            height: calc(var(--hero-top-height) * var(--scale-factor) * var(--hero-top-scale));
             margin-bottom: calc(2rem * var(--scale-factor));
             background-image: url('Mask group-1.png');
             background-size: contain;
@@ -487,6 +488,7 @@
             :root {
                 --scale-factor: 1.2;
                 --hero-image-scale: 1.1;
+                --hero-top-scale: 1.1;
             }
         }
 
@@ -494,6 +496,7 @@
             :root {
                 --scale-factor: 1.1;
                 --hero-image-scale: 1;
+                --hero-top-scale: 1;
             }
         }
 
@@ -501,6 +504,7 @@
             :root {
                 --scale-factor: 1;
                 --hero-image-scale: 1;
+                --hero-top-scale: 1;
             }
         }
 
@@ -508,13 +512,15 @@
             :root {
                 --scale-factor: 0.9;
                 --hero-image-scale: 0.9;
+                --hero-top-scale: 0.8; /* Уменьшаем hero-top-image сильнее */
             }
         }
 
         @media (min-width: 768px) and (max-width: 991px) {
             :root {
                 --scale-factor: 0.8;
-                --hero-image-scale: 0.7; /* Уменьшаем картинки сильнее */
+                --hero-image-scale: 0.7;
+                --hero-top-scale: 0.5; /* Уменьшаем hero-top-image еще сильнее */
             }
 
             .hero {
@@ -564,7 +570,8 @@
         @media (max-width: 767px) {
             :root {
                 --scale-factor: 0.7;
-                --hero-image-scale: 0.6; /* Сильно уменьшаем картинки на мобильных */
+                --hero-image-scale: 0.6;
+                --hero-top-scale: 0.3; /* Сильно уменьшаем hero-top-image на мобильных */
             }
 
             .company-logos {
@@ -595,12 +602,18 @@
             .hero-image-container {
                 text-align: center;
             }
+
+            /* Дополнительные корректировки для hero-top-image */
+            .hero-top-image {
+                margin-bottom: calc(1rem * var(--scale-factor));
+            }
         }
 
         @media (max-width: 480px) {
             :root {
                 --scale-factor: 0.6;
-                --hero-image-scale: 0.5; /* Еще сильнее уменьшаем на очень маленьких экранах */
+                --hero-image-scale: 0.5;
+                --hero-top-scale: 0.2; /* Еще сильнее уменьшаем hero-top-image */
             }
 
             .photo-grid {
@@ -637,12 +650,18 @@
                 text-align: center;
                 margin-top: 2rem;
             }
+
+            /* Дополнительные корректировки для hero-top-image */
+            .hero-top-image {
+                margin-bottom: calc(0.5rem * var(--scale-factor));
+            }
         }
 
         @media (max-width: 360px) {
             :root {
                 --scale-factor: 0.5;
-                --hero-image-scale: 0.4; /* Максимальное уменьшение для самых маленьких экранов */
+                --hero-image-scale: 0.4;
+                --hero-top-scale: 0.15; /* Максимальное уменьшение для hero-top-image */
             }
 
             /* Дополнительные корректировки для самых маленьких экранов */
@@ -654,6 +673,11 @@
 
             .hero-main-image {
                 max-width: calc(220px * var(--scale-factor) * var(--hero-image-scale));
+            }
+
+            /* Дополнительные корректировки для hero-top-image */
+            .hero-top-image {
+                margin-bottom: calc(0.25rem * var(--scale-factor));
             }
         }
     </style>
