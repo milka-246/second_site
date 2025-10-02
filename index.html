@@ -61,16 +61,20 @@
             width: 100%;
             position: relative;
             overflow: hidden;
+            min-height: 80vh;
+            display: flex;
+            align-items: flex-end;
         }
 
         .hero-container {
             width: 100%;
             display: flex;
             flex-wrap: wrap;
-            align-items: center;
+            align-items: flex-end;
             justify-content: space-between;
             gap: calc(2rem * var(--scale-factor));
             max-width: 100%;
+            position: relative;
         }
 
         .hero-content {
@@ -79,12 +83,14 @@
             position: relative;
             max-width: 100%;
             text-align: left;
+            padding-bottom: calc(2rem * var(--scale-factor));
         }
 
+        /* Логотип перемещен в правый верхний угол */
         .new-logo-container {
             position: absolute;
-            top: calc(-30px * var(--scale-factor));
-            left: calc(-30px * var(--scale-factor));
+            top: calc(20px * var(--scale-factor));
+            right: calc(20px * var(--scale-factor));
             z-index: 10;
         }
 
@@ -135,6 +141,7 @@
             max-width: 100%;
             display: flex;
             justify-content: flex-end;
+            align-items: flex-end;
         }
 
         .hero-image-container {
@@ -185,6 +192,7 @@
             background-color: #333;
         }
 
+        /* Остальные стили без изменений */
         /* Immersion Section */
         .immersion {
             background-color: white;
@@ -877,13 +885,14 @@
 <body>
     <section class="hero">
         <div class="hero-container">
-            <div class="hero-content">
-                <div class="new-logo-container">
-                    <div class="logo-part">
-                        <img src="12341.png" alt="logo">
-                    </div>
+            <!-- Логотип перемещен в правый верхний угол -->
+            <div class="new-logo-container">
+                <div class="logo-part">
+                    <img src="12341.png" alt="logo">
                 </div>
+            </div>
 
+            <div class="hero-content">
                 <div class="hero-top-image"></div>
 
                 <h1>ИТ-WEEKEND</h1>
@@ -899,6 +908,7 @@
         </div>
     </section>
 
+    <!-- Остальная часть HTML остается без изменений -->
     <section class="immersion">
         <div class="immersion-container">
             <div class="immersion-content">
