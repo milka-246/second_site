@@ -17,10 +17,43 @@
             color: #374151;
         }
 
-        /* Hero Section - ОБНОВЛЕНО */
+        /* Базовые размеры для десктопа */
+        :root {
+            --scale-factor: 1;
+            --hero-image-scale: 1; /* Отдельный масштаб для картинок в hero */
+            --base-padding: 4rem;
+            --hero-title-size: 4rem;
+            --hero-date-size: 3rem;
+            --immersion-title-size: 4rem;
+            --immersion-it-size: 4.5rem;
+            --subtitle-size: 1.5rem;
+            --btn-size: 1.125rem;
+            --schedule-title-size: 3rem;
+            --schedule-time-size: 2rem;
+            --schedule-event-size: 1.5rem;
+            --footer-title-size: 2rem;
+            --footer-text-size: 2rem;
+            --world-image1-width: 64px;
+            --world-image1-height: 53px;
+            --world-image2-width: 44px;
+            --world-image2-height: 53px;
+            --world-image3-width: 37px;
+            --world-image3-height: 55px;
+            --company-logo-height: 100px;
+            --logo-part-width: 160px;
+            --logo-part-height: 80px;
+            --hero-main-width: 450px;
+            --hero-overlay-width: 700px;
+            --hero-overlay-top: -180px;
+            --hero-overlay-right: -20px;
+            --hero-top-width: 2400px;
+            --hero-top-height: 540px;
+        }
+
+        /* Hero Section */
         .hero {
             background-color: #7FFFD4;
-            padding: 4rem 1.5rem;
+            padding: calc(var(--base-padding) * var(--scale-factor)) calc(1.5rem * var(--scale-factor));
             width: 100%;
             position: relative;
         }
@@ -31,26 +64,26 @@
             flex-wrap: wrap;
             align-items: center;
             justify-content: space-between;
-            gap: 2rem;
+            gap: calc(2rem * var(--scale-factor));
         }
 
         .hero-content {
             flex: 1;
-            min-width: 300px;
+            min-width: calc(300px * var(--scale-factor));
             position: relative;
         }
 
         /* Новый логотип в верхнем левом углу */
         .new-logo-container {
             position: absolute;
-            top: -30px;
-            left: -30px;
+            top: calc(-30px * var(--scale-factor));
+            left: calc(-30px * var(--scale-factor));
             z-index: 10;
         }
 
         .logo-part {
-            width: 160px;
-            height: 80px;
+            width: calc(var(--logo-part-width) * var(--scale-factor));
+            height: calc(var(--logo-part-height) * var(--scale-factor));
         }
 
         .logo-part img {
@@ -59,12 +92,11 @@
             object-fit: contain;
         }
 
-        /* Прямоугольная картинка над заголовком - УВЕЛИЧЕНА */
+        /* Прямоугольная картинка над заголовком - ОБНОВЛЕНО: добавлен масштаб для hero-top-image */
         .hero-top-image {
-            width: 2400px;
-            height: 540px;
-            right: 40px;
-            margin-bottom: 2rem;
+            width: calc(var(--hero-top-width) * var(--scale-factor) * var(--hero-image-scale));
+            height: calc(var(--hero-top-height) * var(--scale-factor) * var(--hero-image-scale));
+            margin-bottom: calc(2rem * var(--scale-factor));
             background-image: url('Mask group-1.png');
             background-size: contain;
             background-repeat: no-repeat;
@@ -72,21 +104,21 @@
         }
 
         .hero h1 {
-            font-size: 4rem;
+            font-size: calc(var(--hero-title-size) * var(--scale-factor));
             font-weight: bold;
             line-height: 1.1;
-            margin-bottom: 0.5rem;
+            margin-bottom: calc(0.5rem * var(--scale-factor));
         }
 
         .hero-date {
-            font-size: 3rem;
+            font-size: calc(var(--hero-date-size) * var(--scale-factor));
             font-weight: bold;
-            margin-bottom: 1.5rem;
+            margin-bottom: calc(1.5rem * var(--scale-factor));
         }
 
         .hero-image {
             flex: 1;
-            min-width: 300px;
+            min-width: calc(300px * var(--scale-factor));
             text-align: right;
             position: relative;
         }
@@ -100,17 +132,17 @@
         .hero-main-image {
             max-width: 100%;
             height: auto;
-            max-width: 450px;
-            border-radius: 8px;
+            max-width: calc(var(--hero-main-width) * var(--scale-factor) * var(--hero-image-scale));
+            border-radius: calc(8px * var(--scale-factor));
             position: relative;
             z-index: 4;
         }
 
         .hero-overlay-image {
             position: absolute;
-            top: -180px;
-            right: -20px;
-            width: 700px;
+            top: calc(var(--hero-overlay-top) * var(--scale-factor) * var(--hero-image-scale));
+            right: calc(var(--hero-overlay-right) * var(--scale-factor) * var(--hero-image-scale));
+            width: calc(var(--hero-overlay-width) * var(--scale-factor) * var(--hero-image-scale));
             height: auto;
             z-index: 3;
             filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
@@ -120,9 +152,9 @@
             display: inline-block;
             background-color: #000;
             color: white;
-            padding: 1rem 2rem;
+            padding: calc(1rem * var(--scale-factor)) calc(2rem * var(--scale-factor));
             border-radius: 9999px;
-            font-size: 1.125rem;
+            font-size: calc(var(--btn-size) * var(--scale-factor));
             font-weight: 600;
             text-decoration: none;
             border: none;
@@ -137,7 +169,7 @@
         /* Immersion Section */
         .immersion {
             background-color: white;
-            padding: 4rem 1.5rem;
+            padding: calc(var(--base-padding) * var(--scale-factor)) calc(1.5rem * var(--scale-factor));
             width: 100%;
         }
 
@@ -146,24 +178,24 @@
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
-            gap: 3rem;
+            gap: calc(3rem * var(--scale-factor));
             align-items: flex-start;
             justify-content: space-between;
         }
 
         .immersion-content {
             flex: 1;
-            min-width: 300px;
+            min-width: calc(300px * var(--scale-factor));
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            padding-left: 1.5rem;
+            padding-left: calc(1.5rem * var(--scale-factor));
         }
 
         .title-container {
             display: flex;
             flex-direction: column;
-            margin-bottom: 0.5rem;
+            margin-bottom: calc(0.5rem * var(--scale-factor));
         }
 
         .title-line {
@@ -171,24 +203,24 @@
             align-items: center;
             flex-wrap: nowrap;
             white-space: nowrap;
-            font-size: 4rem;
+            font-size: calc(var(--immersion-title-size) * var(--scale-factor));
             font-weight: bold;
             line-height: 1.4;
-            margin-bottom: 0.5rem;
+            margin-bottom: calc(0.5rem * var(--scale-factor));
         }
 
         .immersion-content h2 {
-            font-size: 4rem;
+            font-size: calc(var(--immersion-title-size) * var(--scale-factor));
             font-weight: bold;
             line-height: 1.4;
-            margin-bottom: 0.5rem;
+            margin-bottom: calc(0.5rem * var(--scale-factor));
         }
 
         .world-images {
             display: inline-flex;
             overflow: visible;
-            gap: 15px;
-            margin: 0 15px;
+            gap: calc(15px * var(--scale-factor));
+            margin: 0 calc(15px * var(--scale-factor));
             align-items: center;
             white-space: nowrap;
             flex-shrink: 0;
@@ -197,70 +229,70 @@
         .world-image1, .world-image2, .world-image3 {
             display: inline-block;
             overflow: visible;
-            vertical-align: middle;company-logos
-            border-radius: 8px;
+            vertical-align: middle;
+            border-radius: calc(8px * var(--scale-factor));
             object-fit: cover;
             flex-shrink: 0;
         }
 
         .world-image1 {
-            width: 64px;
-            height: 53px;
+            width: calc(var(--world-image1-width) * var(--scale-factor));
+            height: calc(var(--world-image1-height) * var(--scale-factor));
         }
 
         .world-image2 {
-            width: 44px;
-            height: 53px;
+            width: calc(var(--world-image2-width) * var(--scale-factor));
+            height: calc(var(--world-image2-height) * var(--scale-factor));
         }
 
         .world-image3 {
-            width: 37px;
-            height: 55px;
+            width: calc(var(--world-image3-width) * var(--scale-factor));
+            height: calc(var(--world-image3-height) * var(--scale-factor));
         }
 
         .it-text {
-            font-size: 4.5rem;
+            font-size: calc(var(--immersion-it-size) * var(--scale-factor));
             font-weight: bold;
-            margin-left: 10px;
+            margin-left: calc(10px * var(--scale-factor));
         }
 
         /* Новый текст под заголовком */
         .subtitle {
             color: #000;
-            font-size: 1.5rem;
+            font-size: calc(var(--subtitle-size) * var(--scale-factor));
             line-height: 1.4;
-            margin-bottom: 2rem;
-            max-width: 500px;
+            margin-bottom: calc(2rem * var(--scale-factor));
+            max-width: calc(500px * var(--scale-factor));
         }
 
-        /* Новый блок для логотипов компаний - УВЕЛИЧЕНЫ ОТСТУПЫ */
+        /* Новый блок для логотипов компаний */
         .company-logos {
             display: flex;
-            gap: 2rem;
-            margin: 15rem 2rem 0;
+            gap: calc(2rem * var(--scale-factor));
+            margin: calc(15rem * var(--scale-factor)) calc(2rem * var(--scale-factor)) 0;
             flex-wrap: wrap;
             justify-content: left;
             width: 100%;
         }
 
         .company-logo {
-            height: 100px;
+            height: calc(var(--company-logo-height) * var(--scale-factor));
             width: auto;
             object-fit: contain;
         }
 
         .photo-grid {
             flex: 1;
-            min-width: 600px;
+            min-width: calc(600px * var(--scale-factor));
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-            padding-right: 1.5rem;
+            gap: calc(1rem * var(--scale-factor));
+            padding-right: calc(1.5rem * var(--scale-factor));
         }
 
         .photo-card {
             aspect-ratio: 1;
-            border-radius: 0.5rem;
+            border-radius: calc(0.5rem * var(--scale-factor));
             display: flex;
             align-items: center;
             justify-content: center;
@@ -280,7 +312,7 @@
             width: 100%;
             height: 100%;
             overflow: hidden;
-            border-radius: 0.5rem;
+            border-radius: calc(0.5rem * var(--scale-factor));
         }
 
         .carousel-slides {
@@ -302,17 +334,17 @@
 
         .carousel-controls {
             position: absolute;
-            bottom: 10px;
+            bottom: calc(10px * var(--scale-factor));
             left: 0;
             right: 0;
             display: flex;
             justify-content: center;
-            gap: 10px;
+            gap: calc(10px * var(--scale-factor));
         }
 
         .carousel-dot {
-            width: 10px;
-            height: 10px;
+            width: calc(10px * var(--scale-factor));
+            height: calc(10px * var(--scale-factor));
             border-radius: 50%;
             background-color: rgba(255, 255, 255, 0.5);
             cursor: pointer;
@@ -329,8 +361,8 @@
             transform: translateY(-50%);
             background-color: rgba(255, 255, 255, 0.7);
             border: none;
-            width: 40px;
-            height: 40px;
+            width: calc(40px * var(--scale-factor));
+            height: calc(40px * var(--scale-factor));
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -345,22 +377,22 @@
         }
 
         .carousel-arrow.prev {
-            left: 10px;
+            left: calc(10px * var(--scale-factor));
         }
 
         .carousel-arrow.next {
-            right: 10px;
+            right: calc(10px * var(--scale-factor));
         }
 
         .carousel-arrow svg {
-            width: 20px;
-            height: 20px;
+            width: calc(20px * var(--scale-factor));
+            height: calc(20px * var(--scale-factor));
         }
 
         /* Schedule Section */
         .schedule {
             background-color: #7FFFD4;
-            padding: 4rem 1.5rem;
+            padding: calc(var(--base-padding) * var(--scale-factor)) calc(1.5rem * var(--scale-factor));
             width: 100%;
             font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
         }
@@ -372,29 +404,29 @@
         }
 
         .schedule h2 {
-            font-size: 3rem;
+            font-size: calc(var(--schedule-title-size) * var(--scale-factor));
             font-weight: bold;
-            margin-bottom: 3rem;
+            margin-bottom: calc(3rem * var(--scale-factor));
             font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
         }
 
         .schedule-item {
             display: flex;
-            gap: 1.5rem;
-            margin-bottom: 1.5rem;
+            gap: calc(1.5rem * var(--scale-factor));
+            margin-bottom: calc(1.5rem * var(--scale-factor));
             align-items: flex-start;
         }
 
         .schedule-time {
-            font-size: 2rem;
+            font-size: calc(var(--schedule-time-size) * var(--scale-factor));
             font-weight: bold;
-            min-width: 100px;
+            min-width: calc(100px * var(--scale-factor));
             flex-shrink: 0;
             font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
         }
 
         .schedule-event {
-            font-size: 1.5rem;
+            font-size: calc(var(--schedule-event-size) * var(--scale-factor));
             line-height: 1.6;
             font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
         }
@@ -403,7 +435,7 @@
         footer {
             background-color: #374151;
             color: white;
-            padding: 3rem 1.5rem;
+            padding: calc(3rem * var(--scale-factor)) calc(1.5rem * var(--scale-factor));
             width: 100%;
         }
 
@@ -413,35 +445,35 @@
             flex-wrap: wrap;
             align-items: center;
             justify-content: space-between;
-            gap: 1.5rem;
+            gap: calc(1.5rem * var(--scale-factor));
         }
 
         .footer-text h3 {
-            font-size: 2rem;
+            font-size: calc(var(--footer-title-size) * var(--scale-factor));
             font-weight: bold;
-            margin-bottom: 0.5rem;
+            margin-bottom: calc(0.5rem * var(--scale-factor));
         }
 
         .footer-text p {
-            font-size: 2rem;
+            font-size: calc(var(--footer-text-size) * var(--scale-factor));
             color: #7FFFD4;
             font-weight: bold;
-            margin-bottom: 1rem;
+            margin-bottom: calc(1rem * var(--scale-factor));
         }
 
         /* Новая строка в футере */
         .footer-copyright {
-            font-size: 0.875rem;
+            font-size: calc(0.875rem * var(--scale-factor));
             color: white;
             opacity: 0.8;
-            margin-top: 1rem;
+            margin-top: calc(1rem * var(--scale-factor));
             width: 100%;
         }
 
         /* Замена логотипа в футере на картинку */
         .footer-image {
-            width: 120px;
-            height: 60px;
+            width: calc(120px * var(--scale-factor));
+            height: calc(60px * var(--scale-factor));
         }
 
         .footer-image img {
@@ -450,25 +482,64 @@
             object-fit: contain;
         }
 
-        /* Responsive */
-        @media (min-width: 768px) {
+        /* Медиа-запросы для пропорционального масштабирования */
+        @media (min-width: 1920px) {
+            :root {
+                --scale-factor: 1.2;
+                --hero-image-scale: 1.1;
+            }
+        }
+
+        @media (min-width: 1440px) and (max-width: 1919px) {
+            :root {
+                --scale-factor: 1.1;
+                --hero-image-scale: 1;
+            }
+        }
+
+        @media (min-width: 1200px) and (max-width: 1439px) {
+            :root {
+                --scale-factor: 1;
+                --hero-image-scale: 1;
+            }
+        }
+
+        @media (min-width: 992px) and (max-width: 1199px) {
+            :root {
+                --scale-factor: 0.9;
+                --hero-image-scale: 0.9;
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 991px) {
+            :root {
+                --scale-factor: 0.8;
+                --hero-image-scale: 0.7; /* Уменьшаем картинки сильнее */
+            }
+
             .hero {
-                padding: 6rem 1.5rem;
+                padding: calc(6rem * var(--scale-factor)) calc(1.5rem * var(--scale-factor));
             }
 
             .immersion {
-                padding: 6rem 1.5rem;
+                padding: calc(6rem * var(--scale-factor)) calc(1.5rem * var(--scale-factor));
             }
 
             .schedule {
-                padding: 6rem 1.5rem;
+                padding: calc(6rem * var(--scale-factor)) calc(1.5rem * var(--scale-factor));
+            }
+
+            /* Дополнительные корректировки для планшетов */
+            .hero-overlay-image {
+                top: calc(-100px * var(--scale-factor));
+                right: calc(-10px * var(--scale-factor));
             }
         }
 
         @media (max-width: 1010px) {
             .photo-grid {
                 min-width: 100%;
-                padding: 0 1.5rem;
+                padding: 0 calc(1.5rem * var(--scale-factor));
             }
 
             .immersion-container {
@@ -476,7 +547,7 @@
             }
 
             .immersion-content {
-                padding: 0 1.5rem;
+                padding: 0 calc(1.5rem * var(--scale-factor));
             }
 
             .footer-container {
@@ -485,179 +556,104 @@
             }
 
             .company-logos {
-                margin: 5rem 1.5rem 0;
+                margin: calc(5rem * var(--scale-factor)) calc(1.5rem * var(--scale-factor)) 0;
+                justify-content: center;
             }
         }
 
         @media (max-width: 767px) {
-            .hero h1 {
-                font-size: 3rem;
+            :root {
+                --scale-factor: 0.7;
+                --hero-image-scale: 0.6; /* Сильно уменьшаем картинки на мобильных */
             }
 
-            .hero-date {
-                font-size: 2.5rem;
-            }
-
-            .immersion-content h2 {
-                font-size: 3rem;
-            }
-
-            .title-line {
-                font-size: 3rem;
-                line-height: 1.3;
-            }
-
-            .it-text {
-                font-size: 3.5rem;
-            }
-
-            .schedule h2 {
-                font-size: 2.5rem;
-            }
-
-            .schedule-time {
-                font-size: 1.5rem;
-            }
-
-            .schedule-event {
-                font-size: 1.5rem;
-            }
-
-            .subtitle {
-                font-size: 1.25rem;
-            }
-
-            .world-image1, .world-image2, .world-image3 {
-                width: 45px;
-                height: 37px;
-            }
-
-            .world-images {
-                gap: 10px;
-                margin: 0 8px;
-            }
-
-            .hero-overlay-image {
-                width: 300px;
-                top: -50px;
-                right: 20px;
-            }
-
-            /* Адаптив для новых элементов */
-            .new-logo-container {
-                top: -20px;
-                left: -20px;
-            }
-
-            .logo-part {
-                width: 120px;
-                height: 60px;
-            }
-
-            .hero-top-image {
-                width: 400px;
-                height: 107px;
-                margin-bottom: 1.5rem;
-            }
-
-            .footer-text p {
-                font-size: 1.5rem;
-            }
-
-            .footer-image {
-                width: 100px;
-                height: 50px;
-            }
-
-            /* Адаптив для логотипов компаний */
             .company-logos {
-                gap: 1.5rem;
-                margin: 4rem 0 1.5rem 0;
+                gap: calc(1.5rem * var(--scale-factor));
+                margin: calc(4rem * var(--scale-factor)) 0 calc(1.5rem * var(--scale-factor)) 0;
             }
 
             .company-logo {
-                height: 50px;
+                height: calc(50px * var(--scale-factor));
+            }
+
+            .world-images {
+                gap: calc(10px * var(--scale-factor));
+                margin: 0 calc(8px * var(--scale-factor));
+            }
+
+            /* Дополнительные корректировки для мобильных */
+            .hero-overlay-image {
+                top: calc(-60px * var(--scale-factor));
+                right: calc(0px * var(--scale-factor));
+                width: calc(400px * var(--scale-factor) * var(--hero-image-scale));
+            }
+
+            .hero-main-image {
+                max-width: calc(350px * var(--scale-factor) * var(--hero-image-scale));
+            }
+
+            .hero-image-container {
+                text-align: center;
             }
         }
 
         @media (max-width: 480px) {
-            .immersion-content h2 {
-                font-size: 2.5rem;
-            }
-
-            .title-line {
-                font-size: 2.5rem;
-                line-height: 1.2;
-            }
-
-            .it-text {
-                font-size: 3rem;
-            }
-
-            .world-image1, .world-image2, .world-image3 {
-                width: 35px;
-                height: 29px;
-            }
-
-            .world-images {
-                gap: 8px;
-                margin: 0 6px;
-            }
-
-            .subtitle {
-                font-size: 1.125rem;
-            }
-
-            .hero-overlay-image {
-                width: 200px;
-                top: -30px;
-                right: 10px;
+            :root {
+                --scale-factor: 0.6;
+                --hero-image-scale: 0.5; /* Еще сильнее уменьшаем на очень маленьких экранах */
             }
 
             .photo-grid {
                 grid-template-columns: 1fr;
             }
 
-            .schedule-time {
-                font-size: 1.25rem;
-                min-width: 80px;
-            }
-
-            .schedule-event {
-                font-size: 1.25rem;
-            }
-
-            /* Адаптив для новых элементов */
-            .new-logo-container {
-                top: -15px;
-                left: -15px;
-            }
-
-            .logo-part {
-                width: 80px;
-                height: 40px;
-            }
-
-            .hero-top-image {
-                width: 300px;
-                height: 80px;
-                margin-bottom: 1rem;
-            }
-
-            .footer-image {
-                width: 80px;
-                height: 40px;
-            }
-
-            /* Адаптив для логотипов компаний */
             .company-logos {
-                gap: 1rem;
-                margin: 3rem 0 1rem 0;
+                gap: calc(1rem * var(--scale-factor));
+                margin: calc(3rem * var(--scale-factor)) 0 calc(1rem * var(--scale-factor)) 0;
                 justify-content: center;
             }
 
             .company-logo {
-                height: 40px;
+                height: calc(40px * var(--scale-factor));
+            }
+
+            .world-images {
+                gap: calc(8px * var(--scale-factor));
+                margin: 0 calc(6px * var(--scale-factor));
+            }
+
+            /* Дополнительные корректировки для очень маленьких экранов */
+            .hero-overlay-image {
+                top: calc(-40px * var(--scale-factor));
+                right: calc(10px * var(--scale-factor));
+                width: calc(300px * var(--scale-factor) * var(--hero-image-scale));
+            }
+
+            .hero-main-image {
+                max-width: calc(280px * var(--scale-factor) * var(--hero-image-scale));
+            }
+
+            .hero-image {
+                text-align: center;
+                margin-top: 2rem;
+            }
+        }
+
+        @media (max-width: 360px) {
+            :root {
+                --scale-factor: 0.5;
+                --hero-image-scale: 0.4; /* Максимальное уменьшение для самых маленьких экранов */
+            }
+
+            /* Дополнительные корректировки для самых маленьких экранов */
+            .hero-overlay-image {
+                top: calc(-30px * var(--scale-factor));
+                right: calc(5px * var(--scale-factor));
+                width: calc(250px * var(--scale-factor) * var(--hero-image-scale));
+            }
+
+            .hero-main-image {
+                max-width: calc(220px * var(--scale-factor) * var(--hero-image-scale));
             }
         }
     </style>
@@ -715,7 +711,7 @@
                 <!-- Кнопка под текстом -->
                 <a href="https://forms.yandex.ru/u/68da92315056900797c77a7f" target="_blank" class="btn">Записаться</a>
 
-                <!-- Новый блок с логотипами компаний - УВЕЛИЧЕНЫ ОТСТУПЫ -->
+                <!-- Новый блок с логотипами компаний -->
                 <div class="company-logos">
                     <img class="company-logo" src="cb0c8d98e61ae6b9059fc07323a9d06f.png" alt="Логотип компании 1">
                     <img class="company-logo" src="photo_2025-10-02_01-18-00.jpg" alt="Логотип компании 2">
