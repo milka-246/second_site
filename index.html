@@ -131,9 +131,10 @@
         .hero-image {
             flex: 1;
             min-width: calc(300px * var(--scale-factor));
-            text-align: right;
             position: relative;
             max-width: 100%;
+            display: flex;
+            justify-content: flex-end;
         }
 
         .hero-image-container {
@@ -620,6 +621,7 @@
 
             .hero-image {
                 text-align: right;
+                justify-content: flex-end;
             }
         }
 
@@ -629,6 +631,22 @@
                 --hero-image-scale: 0.8;
                 --hero-text-scale: 0.8;
                 --hero-top-scale: 0.4;
+            }
+
+            /* Скрываем hero-top-image на мобильных устройствах */
+            .hero-top-image {
+                display: none;
+            }
+
+            /* Убеждаемся, что изображения прижаты к правому краю */
+            .hero-image {
+                justify-content: flex-end;
+                width: 100%;
+            }
+
+            .hero-image-container {
+                text-align: right;
+                width: 100%;
             }
 
             .company-logos {
@@ -645,7 +663,6 @@
                 margin: 0 calc(8px * var(--scale-factor));
             }
 
-            /* ИСПРАВЛЕНО: Увеличил размеры изображений и исправил наложение */
             .hero-overlay-image {
                 top: calc(-80px * var(--scale-factor));
                 right: calc(-10px * var(--scale-factor));
@@ -654,10 +671,6 @@
 
             .hero-main-image {
                 max-width: calc(380px * var(--scale-factor) * var(--hero-image-scale));
-            }
-
-            .hero-top-image {
-                margin-bottom: calc(1rem * var(--scale-factor));
             }
 
             .title-line {
@@ -678,6 +691,7 @@
             .hero-image {
                 text-align: right;
                 margin-top: 0;
+                justify-content: flex-end;
             }
         }
 
@@ -688,6 +702,10 @@
                 --hero-image-scale: 0.75;
                 --hero-text-scale: 0.75;
                 --hero-top-scale: 0.35;
+            }
+
+            .hero-top-image {
+                display: none;
             }
 
             .hero-container {
@@ -704,6 +722,7 @@
                 width: 50%;
                 text-align: right;
                 margin-top: 0;
+                justify-content: flex-end;
             }
 
             .hero-overlay-image {
@@ -725,6 +744,10 @@
                 --hero-top-scale: 0.3;
             }
 
+            .hero-top-image {
+                display: none;
+            }
+
             .hero-overlay-image {
                 top: calc(-60px * var(--scale-factor));
                 right: calc(-5px * var(--scale-factor));
@@ -742,6 +765,10 @@
                 --hero-image-scale: 0.65;
                 --hero-text-scale: 0.65;
                 --hero-top-scale: 0.25;
+            }
+
+            .hero-top-image {
+                display: none;
             }
 
             .photo-grid {
@@ -774,10 +801,6 @@
             .hero-main-image {
                 max-width: calc(260px * var(--scale-factor) * var(--hero-image-scale));
             }
-
-            .hero-top-image {
-                margin-bottom: calc(0.5rem * var(--scale-factor));
-            }
         }
 
         @media (max-width: 400px) {
@@ -788,6 +811,10 @@
                 --hero-top-scale: 0.2;
             }
 
+            .hero-top-image {
+                display: none;
+            }
+
             .hero-overlay-image {
                 top: calc(-40px * var(--scale-factor));
                 right: calc(0px * var(--scale-factor));
@@ -796,10 +823,6 @@
 
             .hero-main-image {
                 max-width: calc(220px * var(--scale-factor) * var(--hero-image-scale));
-            }
-
-            .hero-top-image {
-                margin-bottom: calc(0.25rem * var(--scale-factor));
             }
 
             .photo-grid {
@@ -814,6 +837,10 @@
                 --hero-image-scale: 0.55;
                 --hero-text-scale: 0.55;
                 --hero-top-scale: 0.15;
+            }
+
+            .hero-top-image {
+                display: none;
             }
 
             .hero-overlay-image {
