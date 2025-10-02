@@ -23,6 +23,7 @@
         :root {
             --scale-factor: 1;
             --hero-image-scale: 1;
+            --hero-text-scale: 1;
             --hero-top-scale: 1;
             --base-padding: 4rem;
             --hero-title-size: 4rem;
@@ -53,13 +54,13 @@
             --hero-top-height: 540px;
         }
 
-        /* Hero Section - ОСНОВНЫЕ ИСПРАВЛЕНИЯ */
+        /* Hero Section */
         .hero {
             background-color: #7FFFD4;
             padding: calc(var(--base-padding) * var(--scale-factor)) calc(1.5rem * var(--scale-factor));
             width: 100%;
             position: relative;
-            overflow: visible; /* Разрешаем элементам выходить за границы */
+            overflow: hidden;
         }
 
         .hero-container {
@@ -69,9 +70,7 @@
             align-items: center;
             justify-content: space-between;
             gap: calc(2rem * var(--scale-factor));
-            position: relative;
-            max-width: 1400px; /* Ограничиваем максимальную ширину контейнера */
-            margin: 0 auto; /* Центрируем контейнер */
+            max-width: 100%;
         }
 
         .hero-content {
@@ -79,10 +78,9 @@
             min-width: calc(300px * var(--scale-factor));
             position: relative;
             max-width: 100%;
-            z-index: 5; /* Поднимаем контент над картинками */
+            text-align: left;
         }
 
-        /* Новый логотип в верхнем левом углу */
         .new-logo-container {
             position: absolute;
             top: calc(-30px * var(--scale-factor));
@@ -102,7 +100,6 @@
             object-fit: contain;
         }
 
-        /* Прямоугольная картинка над заголовком */
         .hero-top-image {
             width: calc(var(--hero-top-width) * var(--scale-factor) * var(--hero-top-scale));
             height: calc(var(--hero-top-height) * var(--scale-factor) * var(--hero-top-scale));
@@ -112,61 +109,52 @@
             background-repeat: no-repeat;
             background-position: left center;
             max-width: 100%;
-            position: relative;
-            z-index: 2;
         }
 
         .hero h1 {
-            font-size: calc(var(--hero-title-size) * var(--scale-factor));
+            font-size: calc(var(--hero-title-size) * var(--scale-factor) * var(--hero-text-scale));
             font-weight: bold;
             line-height: 1.1;
             margin-bottom: calc(0.5rem * var(--scale-factor));
             word-wrap: break-word;
-            position: relative;
-            z-index: 3;
+            text-align: left;
         }
 
         .hero-date {
-            font-size: calc(var(--hero-date-size) * var(--scale-factor));
+            font-size: calc(var(--hero-date-size) * var(--scale-factor) * var(--hero-text-scale));
             font-weight: bold;
             margin-bottom: calc(1.5rem * var(--scale-factor));
             word-wrap: break-word;
-            position: relative;
-            z-index: 3;
+            text-align: left;
         }
 
         .hero-image {
             flex: 1;
             min-width: calc(300px * var(--scale-factor));
+            text-align: right;
             position: relative;
             max-width: 100%;
-            height: 600px; /* Фиксируем высоту контейнера для картинок */
         }
 
         .hero-image-container {
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 100%;
-            height: 100%;
-            max-width: 800px; /* Ограничиваем максимальную ширину */
+            position: relative;
+            display: inline-block;
+            max-width: 100%;
+            text-align: right;
         }
 
         .hero-main-image {
-            position: absolute;
-            top: 50%;
-            right: 0;
-            transform: translateY(-50%);
-            width: calc(var(--hero-main-width) * var(--scale-factor) * var(--hero-image-scale));
             max-width: 100%;
             height: auto;
+            max-width: calc(var(--hero-main-width) * var(--scale-factor) * var(--hero-image-scale));
             border-radius: calc(8px * var(--scale-factor));
+            position: relative;
             z-index: 4;
         }
 
         .hero-overlay-image {
             position: absolute;
-            top: calc(50% + (var(--hero-overlay-top) * var(--scale-factor) * var(--hero-image-scale)));
+            top: calc(var(--hero-overlay-top) * var(--scale-factor) * var(--hero-image-scale));
             right: calc(var(--hero-overlay-right) * var(--scale-factor) * var(--hero-image-scale));
             width: calc(var(--hero-overlay-width) * var(--scale-factor) * var(--hero-image-scale));
             height: auto;
@@ -179,9 +167,9 @@
             display: inline-block;
             background-color: #000;
             color: white;
-            padding: calc(1rem * var(--scale-factor)) calc(2rem * var(--scale-factor));
+            padding: calc(1rem * var(--scale-factor) * var(--hero-text-scale)) calc(2rem * var(--scale-factor) * var(--hero-text-scale));
             border-radius: 9999px;
-            font-size: calc(var(--btn-size) * var(--scale-factor));
+            font-size: calc(var(--btn-size) * var(--scale-factor) * var(--hero-text-scale));
             font-weight: 600;
             text-decoration: none;
             border: none;
@@ -189,15 +177,14 @@
             transition: background-color 0.3s;
             max-width: 100%;
             box-sizing: border-box;
-            position: relative;
-            z-index: 3;
+            text-align: center;
         }
 
         .btn:hover {
             background-color: #333;
         }
 
-        /* Immersion Section - оставляем как было */
+        /* Immersion Section */
         .immersion {
             background-color: white;
             padding: calc(var(--base-padding) * var(--scale-factor)) calc(1.5rem * var(--scale-factor));
@@ -294,7 +281,6 @@
             margin-left: calc(10px * var(--scale-factor));
         }
 
-        /* Новый текст под заголовком */
         .subtitle {
             color: #000;
             font-size: calc(var(--subtitle-size) * var(--scale-factor));
@@ -304,7 +290,6 @@
             word-wrap: break-word;
         }
 
-        /* Новый блок для логотипов компаний */
         .company-logos {
             display: flex;
             gap: calc(2rem * var(--scale-factor));
@@ -322,7 +307,6 @@
             max-width: 100%;
         }
 
-        /* Сетка фотографий - всегда 2x2 на всех устройствах */
         .photo-grid {
             flex: 1;
             min-width: calc(300px * var(--scale-factor));
@@ -515,7 +499,6 @@
             word-wrap: break-word;
         }
 
-        /* Новая строка в футере */
         .footer-copyright {
             font-size: calc(0.875rem * var(--scale-factor));
             color: white;
@@ -525,7 +508,6 @@
             word-wrap: break-word;
         }
 
-        /* Замена логотипа в футере на картинку */
         .footer-image {
             width: calc(120px * var(--scale-factor));
             height: calc(60px * var(--scale-factor));
@@ -543,6 +525,7 @@
             :root {
                 --scale-factor: 1.2;
                 --hero-image-scale: 1.1;
+                --hero-text-scale: 1.1;
                 --hero-top-scale: 1.1;
             }
         }
@@ -551,6 +534,7 @@
             :root {
                 --scale-factor: 1.1;
                 --hero-image-scale: 1;
+                --hero-text-scale: 1;
                 --hero-top-scale: 1;
             }
         }
@@ -559,6 +543,7 @@
             :root {
                 --scale-factor: 1;
                 --hero-image-scale: 1;
+                --hero-text-scale: 1;
                 --hero-top-scale: 1;
             }
         }
@@ -567,6 +552,7 @@
             :root {
                 --scale-factor: 0.9;
                 --hero-image-scale: 0.9;
+                --hero-text-scale: 0.9;
                 --hero-top-scale: 0.8;
             }
         }
@@ -575,6 +561,7 @@
             :root {
                 --scale-factor: 0.8;
                 --hero-image-scale: 0.7;
+                --hero-text-scale: 0.7;
                 --hero-top-scale: 0.5;
             }
 
@@ -590,12 +577,13 @@
                 padding: calc(6rem * var(--scale-factor)) calc(1.5rem * var(--scale-factor));
             }
 
-            /* Корректировки для планшетов */
-            .hero-image {
-                height: 500px;
+            .hero-overlay-image {
+                top: calc(-100px * var(--scale-factor));
+                right: calc(-10px * var(--scale-factor));
             }
         }
 
+        /* ИЗМЕНЕНО: Убрано центрирование на маленьких экранах */
         @media (max-width: 1010px) {
             .photo-grid {
                 min-width: 100%;
@@ -619,12 +607,27 @@
                 margin: calc(5rem * var(--scale-factor)) calc(1.5rem * var(--scale-factor)) 0;
                 justify-content: center;
             }
+
+            /* Сохраняем расположение левой и правой частей в hero */
+            .hero-container {
+                flex-direction: row;
+                text-align: left;
+            }
+
+            .hero-content {
+                text-align: left;
+            }
+
+            .hero-image {
+                text-align: right;
+            }
         }
 
         @media (max-width: 767px) {
             :root {
                 --scale-factor: 0.7;
                 --hero-image-scale: 0.6;
+                --hero-text-scale: 0.6;
                 --hero-top-scale: 0.3;
             }
 
@@ -642,18 +645,57 @@
                 margin: 0 calc(8px * var(--scale-factor));
             }
 
-            /* Корректировки для мобильных */
-            .hero-image {
-                height: 400px;
+            .hero-overlay-image {
+                top: calc(-60px * var(--scale-factor));
+                right: calc(0px * var(--scale-factor));
+                width: calc(400px * var(--scale-factor) * var(--hero-image-scale));
             }
 
-            .hero-image-container {
-                max-width: 600px;
+            .hero-main-image {
+                max-width: calc(350px * var(--scale-factor) * var(--hero-image-scale));
             }
 
-            /* Дополнительные корректировки для hero-top-image */
             .hero-top-image {
                 margin-bottom: calc(1rem * var(--scale-factor));
+            }
+
+            .title-line {
+                flex-wrap: wrap;
+                white-space: normal;
+            }
+
+            /* ИЗМЕНЕНО: Убираем центрирование для hero */
+            .hero-container {
+                flex-direction: row;
+                text-align: left;
+            }
+
+            .hero-content {
+                text-align: left;
+            }
+
+            .hero-image {
+                text-align: right;
+                margin-top: 0;
+            }
+        }
+
+        @media (max-width: 650px) {
+            /* Добавляем новый брейкпоинт для очень узких экранов */
+            .hero-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .hero-content {
+                width: 100%;
+                text-align: left;
+            }
+
+            .hero-image {
+                width: 100%;
+                text-align: right;
+                margin-top: 2rem;
             }
         }
 
@@ -661,10 +703,10 @@
             :root {
                 --scale-factor: 0.6;
                 --hero-image-scale: 0.5;
+                --hero-text-scale: 0.5;
                 --hero-top-scale: 0.2;
             }
 
-            /* Сетка фотографий остается 2x2 на телефонах */
             .photo-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: calc(0.5rem * var(--scale-factor));
@@ -685,27 +727,18 @@
                 margin: 0 calc(6px * var(--scale-factor));
             }
 
-            /* Корректировки для очень маленьких экранов */
-            .hero-image {
-                height: 300px;
+            .hero-overlay-image {
+                top: calc(-40px * var(--scale-factor));
+                right: calc(10px * var(--scale-factor));
+                width: calc(300px * var(--scale-factor) * var(--hero-image-scale));
             }
 
-            .hero-image-container {
-                max-width: 500px;
+            .hero-main-image {
+                max-width: calc(280px * var(--scale-factor) * var(--hero-image-scale));
             }
 
-            /* Дополнительные корректировки для hero-top-image */
             .hero-top-image {
                 margin-bottom: calc(0.5rem * var(--scale-factor));
-            }
-
-            /* Улучшаем отображение на очень маленьких экранах */
-            .hero h1 {
-                font-size: calc(2.5rem * var(--scale-factor));
-            }
-
-            .hero-date {
-                font-size: calc(2rem * var(--scale-factor));
             }
         }
 
@@ -713,19 +746,24 @@
             :root {
                 --scale-factor: 0.5;
                 --hero-image-scale: 0.4;
+                --hero-text-scale: 0.4;
                 --hero-top-scale: 0.15;
             }
 
-            /* Корректировки для самых маленьких экранов */
-            .hero-image {
-                height: 250px;
+            .hero-overlay-image {
+                top: calc(-30px * var(--scale-factor));
+                right: calc(5px * var(--scale-factor));
+                width: calc(250px * var(--scale-factor) * var(--hero-image-scale));
             }
 
-            .hero-image-container {
-                max-width: 400px;
+            .hero-main-image {
+                max-width: calc(220px * var(--scale-factor) * var(--hero-image-scale));
             }
 
-            /* Сетка фотографий остается 2x2 даже на самых маленьких экранах */
+            .hero-top-image {
+                margin-bottom: calc(0.25rem * var(--scale-factor));
+            }
+
             .photo-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: calc(0.3rem * var(--scale-factor));
@@ -756,14 +794,12 @@
     <section class="hero">
         <div class="hero-container">
             <div class="hero-content">
-                <!-- Новый логотип в верхнем левом углу -->
                 <div class="new-logo-container">
                     <div class="logo-part">
                         <img src="12341.png" alt="logo">
                     </div>
                 </div>
 
-                <!-- Прямоугольная картинка над заголовком -->
                 <div class="hero-top-image"></div>
 
                 <h1>ИТ-WEEKEND</h1>
@@ -772,9 +808,7 @@
             </div>
             <div class="hero-image">
                 <div class="hero-image-container">
-                    <!-- Основная картинка теперь поверх -->
                     <img class="hero-main-image" src="2-png-2-31.png" alt="IT Weekend Mascot">
-                    <!-- Mask group.png теперь под основной картинкой -->
                     <img class="hero-overlay-image" src="Mask group.png" alt="Overlay Image">
                 </div>
             </div>
@@ -797,15 +831,12 @@
                     </div>
                 </div>
 
-                <!-- Новый текст -->
                 <div class="subtitle">
                     Обменяйся практическими навыками<br>для успеха в будущем
                 </div>
 
-                <!-- Кнопка под текстом -->
                 <a href="https://forms.yandex.ru/u/68da92315056900797c77a7f" target="_blank" class="btn">Записаться</a>
 
-                <!-- Новый блок с логотипами компаний -->
                 <div class="company-logos">
                     <img class="company-logo" src="cb0c8d98e61ae6b9059fc07323a9d06f.png" alt="Логотип компании 1">
                     <img class="company-logo" src="photo_2025-10-02_01-18-00.jpg" alt="Логотип компании 2">
@@ -905,12 +936,10 @@
             <div class="footer-text">
                 <h3>Ждем тебя в Школе 21</h3>
                 <p>в Нижнем Новгороде</p>
-                <!-- Новая строка с копирайтом и политикой -->
                 <div class="footer-copyright">
                     © «Школа 21», 2025              Политика обработки и безопасности персональных данных
                 </div>
             </div>
-            <!-- Замена логотипа на картинку -->
             <div class="footer-image">
                 <img src="white.png" alt="Школа 21">
             </div>
@@ -928,40 +957,33 @@
             const totalSlides = dots.length;
             let autoSlideInterval;
 
-            // Функция для переключения слайдов
             function goToSlide(index) {
                 currentSlide = index;
                 carouselSlides.style.transform = `translateX(-${currentSlide * 100}%)`;
 
-                // Обновляем активную точку
                 dots.forEach((dot, i) => {
                     dot.classList.toggle('active', i === currentSlide);
                 });
             }
 
-            // Функция для перехода к следующему слайду
             function nextSlide() {
                 currentSlide = (currentSlide + 1) % totalSlides;
                 goToSlide(currentSlide);
             }
 
-            // Функция для перехода к предыдущему слайду
             function prevSlide() {
                 currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
                 goToSlide(currentSlide);
             }
 
-            // Функция для запуска автоматической смены слайдов
             function startAutoSlide() {
                 autoSlideInterval = setInterval(nextSlide, 4000);
             }
 
-            // Функция для остановки автоматической смены слайдов
             function stopAutoSlide() {
                 clearInterval(autoSlideInterval);
             }
 
-            // Обработчики событий для точек
             dots.forEach(dot => {
                 dot.addEventListener('click', function() {
                     const index = parseInt(this.getAttribute('data-index'));
@@ -971,7 +993,6 @@
                 });
             });
 
-            // Обработчики событий для стрелок
             prevArrow.addEventListener('click', function() {
                 stopAutoSlide();
                 prevSlide();
@@ -984,7 +1005,6 @@
                 startAutoSlide();
             });
 
-            // Запускаем автоматическую смену слайдов
             startAutoSlide();
         });
     </script>
