@@ -680,31 +680,67 @@
             }
         }
 
+        /* ИЗМЕНЕНО: Убрано переключение на колонку для очень маленьких экранов */
         @media (max-width: 650px) {
-            /* Добавляем новый брейкпоинт для очень узких экранов */
+            :root {
+                --scale-factor: 0.65;
+                --hero-image-scale: 0.55;
+                --hero-text-scale: 0.55;
+                --hero-top-scale: 0.25;
+            }
+
             .hero-container {
-                flex-direction: column;
+                flex-direction: row;
                 align-items: flex-start;
             }
 
             .hero-content {
-                width: 100%;
+                width: 50%;
                 text-align: left;
             }
 
             .hero-image {
-                width: 100%;
+                width: 50%;
                 text-align: right;
-                margin-top: 2rem;
+                margin-top: 0;
+            }
+
+            .hero-overlay-image {
+                top: calc(-50px * var(--scale-factor));
+                right: calc(0px * var(--scale-factor));
+                width: calc(350px * var(--scale-factor) * var(--hero-image-scale));
+            }
+
+            .hero-main-image {
+                max-width: calc(300px * var(--scale-factor) * var(--hero-image-scale));
             }
         }
 
-        @media (max-width: 480px) {
+        @media (max-width: 580px) {
             :root {
                 --scale-factor: 0.6;
                 --hero-image-scale: 0.5;
                 --hero-text-scale: 0.5;
                 --hero-top-scale: 0.2;
+            }
+
+            .hero-overlay-image {
+                top: calc(-40px * var(--scale-factor));
+                right: calc(0px * var(--scale-factor));
+                width: calc(300px * var(--scale-factor) * var(--hero-image-scale));
+            }
+
+            .hero-main-image {
+                max-width: calc(250px * var(--scale-factor) * var(--hero-image-scale));
+            }
+        }
+
+        @media (max-width: 480px) {
+            :root {
+                --scale-factor: 0.55;
+                --hero-image-scale: 0.45;
+                --hero-text-scale: 0.45;
+                --hero-top-scale: 0.15;
             }
 
             .photo-grid {
@@ -728,13 +764,13 @@
             }
 
             .hero-overlay-image {
-                top: calc(-40px * var(--scale-factor));
-                right: calc(10px * var(--scale-factor));
-                width: calc(300px * var(--scale-factor) * var(--hero-image-scale));
+                top: calc(-35px * var(--scale-factor));
+                right: calc(0px * var(--scale-factor));
+                width: calc(250px * var(--scale-factor) * var(--hero-image-scale));
             }
 
             .hero-main-image {
-                max-width: calc(280px * var(--scale-factor) * var(--hero-image-scale));
+                max-width: calc(220px * var(--scale-factor) * var(--hero-image-scale));
             }
 
             .hero-top-image {
@@ -742,22 +778,22 @@
             }
         }
 
-        @media (max-width: 360px) {
+        @media (max-width: 400px) {
             :root {
                 --scale-factor: 0.5;
                 --hero-image-scale: 0.4;
                 --hero-text-scale: 0.4;
-                --hero-top-scale: 0.15;
+                --hero-top-scale: 0.1;
             }
 
             .hero-overlay-image {
                 top: calc(-30px * var(--scale-factor));
-                right: calc(5px * var(--scale-factor));
-                width: calc(250px * var(--scale-factor) * var(--hero-image-scale));
+                right: calc(0px * var(--scale-factor));
+                width: calc(200px * var(--scale-factor) * var(--hero-image-scale));
             }
 
             .hero-main-image {
-                max-width: calc(220px * var(--scale-factor) * var(--hero-image-scale));
+                max-width: calc(180px * var(--scale-factor) * var(--hero-image-scale));
             }
 
             .hero-top-image {
@@ -767,6 +803,25 @@
             .photo-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: calc(0.3rem * var(--scale-factor));
+            }
+        }
+
+        @media (max-width: 360px) {
+            :root {
+                --scale-factor: 0.45;
+                --hero-image-scale: 0.35;
+                --hero-text-scale: 0.35;
+                --hero-top-scale: 0.08;
+            }
+
+            .hero-overlay-image {
+                top: calc(-25px * var(--scale-factor));
+                right: calc(0px * var(--scale-factor));
+                width: calc(180px * var(--scale-factor) * var(--hero-image-scale));
+            }
+
+            .hero-main-image {
+                max-width: calc(150px * var(--scale-factor) * var(--hero-image-scale));
             }
         }
 
